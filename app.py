@@ -62,3 +62,4 @@ if st.button('Get Total'):
     st.table(data)
 else:
     st.write('Please Key In The Quantity')
+    st.write('Please Select The Ticket Type')
