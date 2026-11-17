@@ -63,3 +63,4 @@ if st.button('Get Total'):
 else:
     st.write('Please Key In The Quantity')
     st.write('Please Select The Ticket Type')
+    print("adults: ", st.session_state.adults)
