@@ -1,9 +1,3 @@
-"""Model: validate bookings and calculate prices, without Streamlit or UI code.
-
-Bookings and results are ordinary dictionaries. All engine prices use cents;
-only the two original assignment functions return whole dollars.
-"""
-
 from constants import (
     ADULT_PRICE, BOOKLET_PRICE, CHILD_PRICE, FAMILY_PRICE, GROUP_MINIMUM,
     GROUP_PERCENT, GUIDE_PRICE, MAX_BOOKLETS, MAX_VISITORS, OFF_PEAK_PERCENT,
@@ -121,11 +115,6 @@ def calculate_group_cost(booking):
 
 
 def calculate_booking(booking):
-    """Choose the cheapest admission, add extras once, and return a receipt.
-
-    Family and Group do not stack. Strict comparisons retain the earlier
-    offer on ties: Standard, then Family, then Group.
-    """
     errors = validate_booking(booking)
     if errors:
         raise ValueError(" ".join(errors))

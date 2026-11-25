@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from constants import MAX_BOOKLETS, MAX_VISITORS, PERIODS, VISITOR_CATEGORIES
+from constants import BOOKLET_PRICE, GUIDE_PRICE, MAX_BOOKLETS, MAX_VISITORS, PERIODS, VISITOR_CATEGORIES
 from presenter import (
     booking_changed, build_receipt_text, capacity_status, compare_periods, money,
     offer_comparison, pricing_guide, receipt_table, reset_booking, submit_booking,
@@ -34,9 +34,9 @@ st.caption("This is the limit for one booking, not live venue availability.")
 
 st.subheader("2. Visit period and extras")
 st.radio("Visit period", PERIODS, key="period")
-st.number_input("Number of audio guides", min_value=0, max_value=MAX_VISITORS, step=1, key="guides",
+st.number_input(f"Number of audio guides ({money(GUIDE_PRICE)} each)", min_value=0, max_value=MAX_VISITORS, step=1, key="guides",
                 help="At most one guide per paying visitor (adult, child or senior).")
-st.number_input("Number of souvenir booklets", min_value=0, max_value=MAX_BOOKLETS, step=1, key="booklets")
+st.number_input(f"Number of souvenir booklets ({money(BOOKLET_PRICE)} each)", min_value=0, max_value=MAX_BOOKLETS, step=1, key="booklets")
 st.caption("Extras stay at full price. At least one paying visitor is required to add extras.")
 submitted = st.button("Calculate total", key="calculate", disabled=capacity["excess"] > 0)
 st.button("Reset booking", key="reset", on_click=reset_booking, args=(st.session_state,))

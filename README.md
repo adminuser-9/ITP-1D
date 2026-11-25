@@ -1,8 +1,8 @@
 # Tales of Lanfang Ticket Calculator
 
-A freshman Streamlit assignment using simple functions, dictionaries, loops, and conditions.
+ITP 1D assignment extending the ticketing starter code
 
-## Files and MVP structure
+## Files Overview
 
 | File | Role |
 | --- | --- |
@@ -12,6 +12,7 @@ A freshman Streamlit assignment using simple functions, dictionaries, loops, and
 | `constants.py` | Fixed prices, discount percentages, limits, and visitor labels |
 | `tests/` | Pricing examples, validation, presenter, and Streamlit checks |
 
+## MVP Structure (Model-View-Presenter)
 The View calls the Presenter, which calls the Model. Neither the Presenter nor the Model imports Streamlit. The pricing engine uses ordinary `if` statements; there is no strategy registry, class hierarchy, or separate pricing package.
 
 ## Run

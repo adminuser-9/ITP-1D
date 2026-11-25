@@ -1,5 +1,3 @@
-"""Presenter: handle submissions, reset state, and format results for the view."""
-
 from constants import (
     BOOKLET_PRICE, FAMILY_PRICE, GROUP_MINIMUM, GROUP_PERCENT, GUIDE_PRICE,
     MAX_BOOKLETS, MAX_VISITORS, OFF_PEAK_PERCENT, PERIODS, QUANTITY_FIELDS, VISITOR_CATEGORIES,
@@ -89,7 +87,6 @@ def booking_changed(values, result):
 
 
 def receipt_table(result):
-    """Markdown keeps the receipt readable without a dataframe dependency."""
     rows = ["| Item | Quantity | Unit price | Amount |", "| --- | ---: | ---: | ---: |"]
     for item in result["admission_items"] + result["extras_items"]:
         rows.append(f"| {item['label']} | {item['quantity']} | {money(item['unit_price_cents'])} "
@@ -99,7 +96,6 @@ def receipt_table(result):
 
 
 def compare_periods(result):
-    """Reprice the submitted basket through the same engine for each period."""
     comparisons = []
     for period in PERIODS:
         booking = result["booking"].copy()
